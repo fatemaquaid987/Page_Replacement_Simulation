@@ -13,7 +13,7 @@ This program implements a page table for a 32-bit address space with pages 4KB i
 
 # How to run:  
 Compile vmsim.c and enter the following command line:  
-./vmsim –n <numframes> -a <opt|fifo|aging> [-r <refresh>] <tracefile>  
+./vmsim –n numframes -a opt|fifo|aging [-r refresh] tracefile  
 The program will then run through the memory references of the file and decide the action taken for
 each address (hit, page fault – no eviction, page fault – evict clean, page fault – evict dirty).
 When the trace is over, it prints out summary statistics in the following format:  
@@ -26,9 +26,12 @@ Total writes to disk: %d
 # Trace files:  
 The simulator takes a command-line argument that specifies the trace file that will be used to compute
 the output statistics. The trace file will specify all the data memory accesses that occur in the sample program. Each line in the trace file will specify a new memory reference. Each line in the trace will therefore have the following three fields:  
-*Access Type:* A single character indicating whether the access is a load ('l') or a store ('s').  
-*Address:* A 32-bit integer (in unsigned hexadecimal format) specifying the memory address that is being accessed. For example, "0xff32e100" specifies that memory address 4281524480 is accessed.   
-*CPU cycles since last memory access:* Indicates the number of CPU cycles that elapsed since the
+*Access Type:*   
+A single character indicating whether the access is a load ('l') or a store ('s').  
+*Address:*  
+ A 32-bit integer (in unsigned hexadecimal format) specifying the memory address that is being accessed. For example, "0xff32e100" specifies that memory address 4281524480 is accessed.   
+*CPU cycles since last memory access:*   
+Indicates the number of CPU cycles that elapsed since the
 last memory access (i.e., the one on the previous line in the trace). For example, if the 5th and
 10th cycles in the program's execution are loads, and there are no memory operations between
 them, then the trace line for the second load has "4" for this field. For the first line in the trace
