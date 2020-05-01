@@ -1,7 +1,7 @@
 # Page_Replacement_Simulation  
 A simulation of FIFO, Optimum and, Aging page replacement algorithms in C.  
 
-# Overview:  
+## Overview:  
 The three algorithms in this project are:  
 Opt – Simulates what the optimal page replacement algorithm would choose if it had perfect
 knowledge.    
@@ -11,9 +11,10 @@ refresh of the R bits every P CPU cycles.
 
 This program implements a page table for a 32-bit address space with pages 4KB in size. The number of frames will be a parameter to the execution of the program.  
 
-# How to run:  
-Compile vmsim.c and enter the following command line:  
-./vmsim –n numframes -a opt|fifo|aging [-r refresh] tracefile  
+## How to run:  
+On linux command line, compile vmsim.c using "gcc -o vmsim vmsim.c".  
+Enter the following command line to run:  
+./vmsim –n numframes -a opt|fifo|aging [-r refresh] tracefile    
 The program will then run through the memory references of the file and decide the action taken for
 each address (hit, page fault – no eviction, page fault – evict clean, page fault – evict dirty).
 When the trace is over, it prints out summary statistics in the following format:  
@@ -23,7 +24,7 @@ Total memory accesses: %d
 Total page faults: %d  
 Total writes to disk: %d  
 
-# Trace files:  
+## Trace files:  
 The simulator takes a command-line argument that specifies the trace file that will be used to compute
 the output statistics. The trace file will specify all the data memory accesses that occur in the sample program. Each line in the trace file will specify a new memory reference. Each line in the trace will therefore have the following three fields:  
 *Access Type:*   
