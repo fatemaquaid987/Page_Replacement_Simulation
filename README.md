@@ -12,7 +12,9 @@ refresh of the R bits every P CPU cycles.
 This program implements a page table for a 32-bit address space with pages 4KB in size. The number of frames will be a parameter to the execution of the program.  
 
 ## How to run:  
-On linux command line, compile vmsim.c using "gcc -o vmsim vmsim.c".  
+Install C-Programming compiler first (gcc) on your machine.
+On the command line:  
+Compile vmsim.c using "gcc -o vmsim vmsim.c".  
 Enter the following command line to run:  
 ./vmsim –n numframes -a opt|fifo|aging [-r refresh] tracefile    
 The program will then run through the memory references of the file and decide the action taken for
